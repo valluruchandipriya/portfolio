@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandi Priya's Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #e0e0e0;
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+            background-image: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .background-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        header {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            font-weight: 700;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        header p {
+            margin: 15px 0 0;
+            font-style: italic;
+            font-size: 1.3em;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            animation: slideInFromRight 1s ease-out;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        section {
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about, .skills, .projects, .resume, .contact {
+            background: linear-gradient(135deg, #ffffff, #f9f9f9);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before, .skills::before, .projects::before, .resume::before, .contact::before {
+            content: '';
+            position: absolute;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .about::before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/soft-paper.png');
+        }
+
+        .skills::before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/old-wall.png');
+        }
+
+        .projects::before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/tile.png');
+        }
+
+        .resume::before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/matrix.png');
+        }
+
+        .contact::before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubist.png');
+        }
+
+        .about img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skills li {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: #ffffff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .skills li:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, #2980b9, #3498db);
+        }
+
+        .projects .project {
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .projects img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .resume a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .resume a:hover {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            transform: scale(1.05);
+        }
+
+        .contact p {
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        footer {
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-effect"></div>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Chandi Priya</h1>
+        <p>Innovative Computer Science Student with a Passion for Technology</p>
+    </header>
+
+    <section id="about" class="about">
+        <img src="priya.jpg" alt="Susmitha">
+        <h2>About Me</h2>
+        <p>Hello! I'm Chandipriya, a Computer Science student dedicated to solving complex problems through technology. With a solid foundation in programming and a passion for learning, I'm excited to contribute to innovative projects and advance my skills in the tech industry.</p>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Programming Languages: Python, Java, C++</li>
+            <li>Web Development: HTML, CSS, JavaScript</li>
+            <li>Frameworks: React, Django</li>
+            <li>Data Analysis: Pandas, NumPy</li>
+            <li>Machine Learning: TensorFlow, Scikit-Learn</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Smart Home Automation</h3>
+            <p>A web application for controlling smart home devices using IoT technology. Developed using React and Node.js.</p>
+            <img src="smarthome.jpg" alt="Smart Home Automation">
+        </div>
+        <div class="project">
+            <h3>Personal Finance Tracker</h3>
+            <p>A mobile app for tracking personal finances and budgeting. Built with Flutter for cross-platform functionality.</p>
+            <img src="personalfinancetracker.jpg" alt="Personal Finance Tracker">
+        </div>
+        <div class="project">
+            <h3>AI-Powered Chatbot</h3>
+            <p>An intelligent chatbot designed to provide customer support using natural language processing. Implemented using Python and TensorFlow.</p>
+            <img src="aipoweredchatbot.jpg" alt="AI-Powered Chatbot">
+        </div>
+    </section>
+
+    <section id="resume" class="resume">+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <h2>Resume</h2>
+        <a href="priyacv.pdf" download>Download My Resume</a>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out if you'd like to connect or discuss potential opportunities!</p>
+        <p>Email: valluruchandipriya@gmail.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/valluru-chandi-priya-045055285/" target="_blank">linkedin.com/in/Chandipriya</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Chandipriya. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
